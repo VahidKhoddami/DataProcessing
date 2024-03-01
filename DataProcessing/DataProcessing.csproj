@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.Textract" Version="3.7.300.54" />
     <PackageReference Include="Azure.AI.Vision.ImageAnalysis" Version="1.0.0-beta.2" />
     <PackageReference Include="Azure.Identity" Version="1.10.4" />
     <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.6.0" />
