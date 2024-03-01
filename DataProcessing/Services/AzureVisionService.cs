@@ -24,14 +24,10 @@ namespace DataProcessing.Services
                 resultStr.AppendLine(line.Text);
 
             return resultStr.ToString();
-
         }
 
-        private static async Task<Tuple<Response<KeyVaultSecret>, Response<KeyVaultSecret>>> GetKeyAndEndpoint()
+        private async Task<Tuple<Response<KeyVaultSecret>, Response<KeyVaultSecret>>> GetKeyAndEndpoint()
         {
-            //Name of your key vault
-            //var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-
             //variables for retrieving the key and endpoint from your key vault.
             //Set these variables to the names you created for your secrets
             const string keySecretName = "CognitiveServicesKey";
