@@ -1,4 +1,6 @@
 using DataProcessing.Controllers;
+using DataProcessing.Services;
+using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework.Constraints;
 
@@ -9,13 +11,14 @@ namespace DataProcessing.Tests
         private string _path = "C:\\Projects\\Internship\\DataProcessing\\DataProcessing\\Content\\Images\\Image2.jpg";
 
         [Test]
-        public async Task ConvertImageToText_With_Azure_Provider_ReturnTextString()
+        public async Task ConvertImage_With_Azure_Provider_ReturnTextString()
         {
             //Arrange
-            var controller = new ConvertImageController();
+            var factory = A.Fake<ProviderFactory>();
+            var controller = new ConvertImageController(factory);
 
             //Act
-            var actionResult = await controller.ConvertImageToText(_path, "azure");
+            var actionResult = await controller.ConvertToText(_path, "azure");
 
             //Assert
             var result = actionResult as OkObjectResult;
@@ -24,13 +27,14 @@ namespace DataProcessing.Tests
         }
 
         [Test]
-        public async Task ConvertImageToText_With_Amazon_Provider_ReturnTextString()
+        public async Task ConvertImage_With_Amazon_Provider_ReturnTextString()
         {
             //Arrange
-            var controller = new ConvertImageController();
+            var factory = A.Fake<ProviderFactory>();
+            var controller = new ConvertImageController(factory);
 
             //Act
-            var actionResult = await controller.ConvertImageToText(_path, "amazon");
+            var actionResult = await controller.ConvertToText(_path, "amazon");
 
             //Assert
             var result = actionResult as OkObjectResult;
@@ -39,13 +43,14 @@ namespace DataProcessing.Tests
         }
 
         [Test]
-        public async Task ConvertImageToText_With_Any_Provider_PathNotFound_ReturnBadRequest()
+        public async Task ConvertImage_With_Any_Provider_PathNotFound_ReturnBadRequest()
         {
             //Arrange
-            var controller = new ConvertImageController();
+            var factory = A.Fake<ProviderFactory>();
+            var controller = new ConvertImageController(factory);
 
             //Act
-            var actionResult = await controller.ConvertImageToText("Invalid path!", "any");
+            var actionResult = await controller.ConvertToText("Invalid path!", "any");
 
             //Assert
             var result = actionResult as BadRequestObjectResult;
@@ -53,13 +58,14 @@ namespace DataProcessing.Tests
         }
 
         [Test]
-        public async Task ConvertImageToText_With_A_Provider_NotImplemented_Return_ArgumentOutOfRangeException()
+        public async Task ConvertImage_With_A_Provider_NotImplemented_Return_ArgumentOutOfRangeException()
         {
             //Arrange
-            var controller = new ConvertImageController();
+            var factory = A.Fake<ProviderFactory>();
+            var controller = new ConvertImageController(factory);
 
             //Act, Assert
-            var exception = Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => controller.ConvertImageToText(_path, "any"));
+            var exception = Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => controller.ConvertToText(_path, "any"));
             Assert.That(exception.Message, new StartsWithConstraint("The provider name not found!"));
 
         }

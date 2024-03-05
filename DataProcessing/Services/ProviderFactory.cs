@@ -1,8 +1,11 @@
 ﻿namespace DataProcessing.Services
 {
-    public static class ProviderFactory
+    public class ProviderFactory
     {
-        public static IConversionService GetImageService(string provider)
+        private readonly ISecretKeyService _secretKeyService;
+        public ProviderFactory(ISecretKeyService secretKeyService) => _secretKeyService = secretKeyService;
+
+        public IConversionService GetImageService(string provider)
         {
             switch (provider.ToLower())
             {
@@ -10,6 +13,16 @@
                     return new AzureVisionService();
                 case "amazon":
                     return new AmazonTextractService();
+                default:
+                    throw new ArgumentOutOfRangeException(provider, "The provider name not found!");
+            }
+        }
+        public IConversionService GetAudioService(string provider)
+        {
+            switch (provider.ToLower())
+            {
+                case "assemblyai":
+                    return new AssemblyAIAudioService(_secretKeyService);
                 default:
                     throw new ArgumentOutOfRangeException(provider, "The provider name not found!");
             }
