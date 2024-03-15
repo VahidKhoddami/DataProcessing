@@ -1,0 +1,4 @@
+python-doctr
+fastapi
+uvicorn
+python-multipart
