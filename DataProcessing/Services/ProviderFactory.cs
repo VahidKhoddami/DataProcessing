@@ -23,6 +23,8 @@
             {
                 case "assemblyai":
                     return new AssemblyAIAudioService(_secretKeyService);
+                case "azure":
+                    return new AzureSpeechService(_secretKeyService);
                 default:
                     throw new ArgumentOutOfRangeException(provider, "The provider name not found!");
             }

@@ -5,7 +5,31 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessing", "DataProcessing\DataProcessing.csproj", "{A88C0BA5-0808-4407-8C01-053319D2EB98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessing.Tests", "DataProcessing.Tests\DataProcessing.Tests.csproj", "{2CF4194A-51BC-4F97-A42D-3FA6AD4643F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessing.Tests", "DataProcessing.Tests\DataProcessing.Tests.csproj", "{2CF4194A-51BC-4F97-A42D-3FA6AD4643F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomModels", "CustomModels", "{7A5FCA54-92EA-4A9A-B272-B72A09AFF52D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doctr", "Doctr", "{EBB2E130-9122-4EE7-B56E-DD909E7A864B}"
+	ProjectSection(SolutionItems) = preProject
+		CustomModels\Doctr\Dockerfile = CustomModels\Doctr\Dockerfile
+		CustomModels\Doctr\image.jpg = CustomModels\Doctr\image.jpg
+		CustomModels\Doctr\image2.jpg = CustomModels\Doctr\image2.jpg
+		CustomModels\Doctr\main.py = CustomModels\Doctr\main.py
+		CustomModels\Doctr\requirements.txt = CustomModels\Doctr\requirements.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45880DC9-4DEA-43B6-A1B0-B62EE54FCB35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Audios", "Audios", "{EB93F246-11C4-4E35-A7E3-1CF51F10CED2}"
+	ProjectSection(SolutionItems) = preProject
+		Data\Audios\Audio1(Noisy).wav = Data\Audios\Audio1(Noisy).wav
+		Data\Audios\Audio1(Normal).wav = Data\Audios\Audio1(Normal).wav
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{FE60EE78-F782-4CE8-9ED3-5F2E8FBABDC6}"
+	ProjectSection(SolutionItems) = preProject
+		Data\Images\Image2.jpg = Data\Images\Image2.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +48,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EBB2E130-9122-4EE7-B56E-DD909E7A864B} = {7A5FCA54-92EA-4A9A-B272-B72A09AFF52D}
+		{EB93F246-11C4-4E35-A7E3-1CF51F10CED2} = {45880DC9-4DEA-43B6-A1B0-B62EE54FCB35}
+		{FE60EE78-F782-4CE8-9ED3-5F2E8FBABDC6} = {45880DC9-4DEA-43B6-A1B0-B62EE54FCB35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8ADBCBD8-46B4-40BC-B397-361ED431A3E0}

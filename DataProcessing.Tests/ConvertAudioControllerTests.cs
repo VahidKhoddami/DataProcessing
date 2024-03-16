@@ -8,8 +8,9 @@ namespace DataProcessing.Tests
 {
     public class ConversionControllerTests
     {
-        private string _path = "C:\\Projects\\Internship\\DataProcessing\\DataProcessing\\Content\\Audios\\Audio1(Noisy).wav";
-
+        private string _path = "C:\\Projects\\Internship\\DataProcessing\\Data\\Audios\\Audio1(Noisy).wav";
+        private string _pathNotWav = "C:\\Projects\\Internship\\DataProcessing\\Data\\Audios\\Recording.m4a";
+        private string _pathLongAudio = "C:\\Projects\\Internship\\DataProcessing\\Data\\Audios\\Audio1(Normal).wav";
         [Test]
         public async Task ConvertAudio_With_AssemblyAI_Provider_ReturnTextString()
         {
@@ -19,6 +20,70 @@ namespace DataProcessing.Tests
 
             //Act
             var actionResult = await controller.ConvertToText(_path, "assemblyai");
+
+            //Assert
+            var result = actionResult as OkObjectResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Value, Is.TypeOf<string>());
+        }
+
+        [Test]
+        public async Task ConvertAudio_With_AssemblyAI_Provider_NotWavFormat_ReturnTextString()
+        {
+            //Arrange
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
+            var controller = new ConvertAudioController(factory);
+
+            //Act
+            var actionResult = await controller.ConvertToText(_pathNotWav, "assemblyai");
+
+            //Assert
+            var result = actionResult as OkObjectResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Value, Is.TypeOf<string>());
+        }
+
+        [Test]
+        public async Task ConvertAudio_With_Azure_Provider_ReturnTextString()
+        {
+            //Arrange
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
+            var controller = new ConvertAudioController(factory);
+
+            //Act
+            var actionResult = await controller.ConvertToText(_path, "azure");
+
+            //Assert
+            var result = actionResult as OkObjectResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Value, Is.TypeOf<string>());
+        }
+
+        [Test]
+        public async Task ConvertAudio_With_Azure_Provider_NotWavFormat_ConvertAndReturnTextString()
+        {
+            //Arrange
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
+            var controller = new ConvertAudioController(factory);
+
+            //Act
+            var actionResult = await controller.ConvertToText(_pathNotWav, "azure");
+
+            //Assert
+            var result = actionResult as OkObjectResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Value, Is.TypeOf<string>());
+        }
+
+        [Test]
+        public async Task ConvertAudio_With_Azure_Provider_LongAudio_ConvertAndReturnTextString()
+        {
+            //Arrange
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
+            var controller = new ConvertAudioController(factory);
+
+            //Act
+            var actionResult = await controller.ConvertToText(_pathLongAudio, "azure");
 
             //Assert
             var result = actionResult as OkObjectResult;

@@ -8,7 +8,7 @@ namespace DataProcessing.Tests
 {
     public class ConvertImageControllerTests
     {
-        private string _path = "C:\\Projects\\Internship\\DataProcessing\\DataProcessing\\Content\\Images\\Image2.jpg";
+        private string _path = "C:\\Projects\\Internship\\DataProcessing\\Data\\Images\\Image2.jpg";
 
         [Test]
         public async Task ConvertImage_With_Azure_Provider_ReturnTextString()
