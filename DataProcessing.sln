@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{FE60EE
 		Data\Images\Image2.jpg = Data\Images\Image2.jpg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalytic", "DataAnalytic\DataAnalytic.csproj", "{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManagement", "KeyManagement\KeyManagement.csproj", "{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{2CF4194A-51BC-4F97-A42D-3FA6AD4643F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF4194A-51BC-4F97-A42D-3FA6AD4643F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF4194A-51BC-4F97-A42D-3FA6AD4643F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
