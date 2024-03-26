@@ -1,15 +1,14 @@
 ﻿using Amazon.Textract;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
-using Azure;
-using System.IO;
+using KeyManagement.Interfaces;
 namespace DataProcessing.Services
 {
     public class AmazonTextractService : IConversionService
     {
+        private readonly ISecretKeyService _secretKeyService;
+        public AmazonTextractService(ISecretKeyService secretKeyService) => _secretKeyService = secretKeyService;
         public async Task<string> AnalyseAsync(string path)
         {
-            Amazon.Runtime.BasicAWSCredentials credentials = new Amazon.Runtime.BasicAWSCredentials("AKIASEFQM3Y26UZI6RSD", await GetSecret("AKIASEFQM3Y26UZI6RSD"));
+            Amazon.Runtime.BasicAWSCredentials credentials = new Amazon.Runtime.BasicAWSCredentials("AKIASEFQM3Y26UZI6RSD", await _secretKeyService.GetSecret("AKIASEFQM3Y26UZI6RSD"));
             AmazonTextractClient client = new AmazonTextractClient(credentials, Amazon.RegionEndpoint.CACentral1);
 
             var memoryStream = new MemoryStream();
@@ -27,16 +26,5 @@ namespace DataProcessing.Services
             return result.Blocks.Where(block => block.BlockType == BlockType.LINE).Select(block => block.Text).Aggregate((a, b) => a + Environment.NewLine + b);
         }
 
-        private async Task<string> GetSecret(string secretKey)
-        {
-            //Endpoint for accessing key vault
-            var kvUri = "https://InternshipKeyValut.vault.azure.net";
-
-            var keyVaultClient = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-
-            var secret = await keyVaultClient.GetSecretAsync(secretKey);
-
-            return secret.Value.Value;
-        }
     }
 }

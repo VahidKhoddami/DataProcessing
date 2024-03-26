@@ -1,4 +1,6 @@
-﻿namespace DataProcessing.Services
+﻿using KeyManagement.Interfaces;
+
+namespace DataProcessing.Services
 {
     public class ProviderFactory
     {
@@ -10,9 +12,9 @@
             switch (provider.ToLower())
             {
                 case "azure":
-                    return new AzureVisionService();
+                    return new AzureVisionService(_secretKeyService);
                 case "amazon":
-                    return new AmazonTextractService();
+                    return new AmazonTextractService(_secretKeyService);
                 default:
                     throw new ArgumentOutOfRangeException(provider, "The provider name not found!");
             }

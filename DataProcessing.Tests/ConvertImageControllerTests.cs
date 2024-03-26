@@ -1,6 +1,7 @@
 using DataProcessing.Controllers;
 using DataProcessing.Services;
 using FakeItEasy;
+using KeyManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework.Constraints;
 
@@ -14,7 +15,7 @@ namespace DataProcessing.Tests
         public async Task ConvertImage_With_Azure_Provider_ReturnTextString()
         {
             //Arrange
-            var factory = A.Fake<ProviderFactory>();
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
             var controller = new ConvertImageController(factory);
 
             //Act
@@ -30,7 +31,7 @@ namespace DataProcessing.Tests
         public async Task ConvertImage_With_Amazon_Provider_ReturnTextString()
         {
             //Arrange
-            var factory = A.Fake<ProviderFactory>();
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
             var controller = new ConvertImageController(factory);
 
             //Act
@@ -46,7 +47,7 @@ namespace DataProcessing.Tests
         public async Task ConvertImage_With_Any_Provider_PathNotFound_ReturnBadRequest()
         {
             //Arrange
-            var factory = A.Fake<ProviderFactory>();
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
             var controller = new ConvertImageController(factory);
 
             //Act
@@ -61,7 +62,7 @@ namespace DataProcessing.Tests
         public async Task ConvertImage_With_A_Provider_NotImplemented_Return_ArgumentOutOfRangeException()
         {
             //Arrange
-            var factory = A.Fake<ProviderFactory>();
+            var factory = A.Fake<ProviderFactory>(a => a.WithArgumentsForConstructor(() => new ProviderFactory(new AzureKeyVaultService())));
             var controller = new ConvertImageController(factory);
 
             //Act, Assert

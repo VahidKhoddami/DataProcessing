@@ -1,6 +1,7 @@
 using DataProcessing.Controllers;
 using DataProcessing.Services;
 using FakeItEasy;
+using KeyManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework.Constraints;
 
