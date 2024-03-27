@@ -15,6 +15,8 @@ namespace DataAnalytic.Services
                     return new IBMNLUService(_secretKeyService);
                 case "azure":
                     return new AzureTextAnalytics(_secretKeyService);
+                case "amazon":
+                    return new AWSComprehendService(_secretKeyService);
                 default:
                     throw new ArgumentOutOfRangeException(provider, "The provider name not found!");
             }

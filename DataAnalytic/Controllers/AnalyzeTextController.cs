@@ -5,7 +5,7 @@ namespace DataAnalytic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Produces("application/json")]
+    //[Produces("application/json")]
     public class AnalyzeTextController : ControllerBase
     {
         private readonly ProviderFactory _provider;
