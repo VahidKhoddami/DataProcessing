@@ -31,9 +31,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{FE60EE
 		Data\Images\Image2.jpg = Data\Images\Image2.jpg
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalytic", "DataAnalytic\DataAnalytic.csproj", "{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalytic", "DataAnalytic\DataAnalytic.csproj", "{69E867B8-D1BB-41D7-9B98-DCCEE7FBB110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManagement", "KeyManagement\KeyManagement.csproj", "{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyManagement", "KeyManagement\KeyManagement.csproj", "{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalytic.Tests", "DataAnalytic.Tests\DataAnalytic.Tests.csproj", "{E3F6276C-2C4C-43C9-9D45-CEC642DAF2F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C1146C-A18D-4B9B-8903-2FF3061E65B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F6276C-2C4C-43C9-9D45-CEC642DAF2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F6276C-2C4C-43C9-9D45-CEC642DAF2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F6276C-2C4C-43C9-9D45-CEC642DAF2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F6276C-2C4C-43C9-9D45-CEC642DAF2F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
